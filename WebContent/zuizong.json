@@ -1,0 +1,118 @@
+{
+   "key1":
+   [
+      [
+         [
+            0,0
+         ]
+
+      ],[
+         [
+            0,0,"山西"
+         ],[
+            1,1,"安徽"
+         ],[
+            2,0,"上海"
+         ],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+      ],[
+         [
+            0,2
+         ]
+
+      ],[
+         [
+            0,2,"河南"
+         ],[
+            2,2,"北京"
+         ],[
+            6,6,"深圳"
+         ],[
+            6,8,"陕西"
+         ],[
+            7,7,"青岛"
+         ],[
+            8,6,"哈尔滨"
+         ],[
+            8,8,"开封"
+         ],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+      ]
+
+   ],"key2":
+   [
+      [
+         [
+            1,1
+         ]
+
+      ],[
+         [
+            0,0,"山西"
+         ],[
+            0,2,"河南"
+         ],[
+            1,1,"安徽"
+         ],[
+            2,0,"上海"
+         ],[
+            2,2,"北京"
+         ],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+      ],[
+         [
+            6,6
+         ]
+
+      ],[
+         [
+            6,6,"深圳"
+         ],[
+            6,8,"陕西"
+         ],[
+            7,7,"青岛"
+         ],[
+            8,6,"哈尔滨"
+         ],[
+            8,8,"开封"
+         ],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+      ]
+
+   ],"key3":
+   [
+      [
+         [
+            1,1
+         ]
+
+      ],[
+         [
+            0,0,"山西"
+         ],[
+            0,2,"河南"
+         ],[
+            1,1,"安徽"
+         ],[
+            2,0,"上海"
+         ],[
+            2,2,"北京"
+         ],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+      ],[
+         [
+            7,7
+         ]
+
+      ],[
+         [
+            6,6,"深圳"
+         ],[
+            6,8,"陕西"
+         ],[
+            7,7,"青岛"
+         ],[
+            8,6,"哈尔滨"
+         ],[
+            8,8,"开封"
+         ],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+      ]
+
+   ]
+
+}
