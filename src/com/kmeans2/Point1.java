@@ -42,9 +42,9 @@ public class Point1
 		this.clusternum = clusternum;
 	}
 	
-	public String toString()
-	{
-		return "Point" + "(" + x + "," + y + ") belongs to cluster " + clusternum;
+	@Override
+	public String toString() {
+		return "Point1 [x=" + x + ", y=" + y + ", clusternum=" + clusternum + ", name=" + name + "]";
 	}
 	public String CenterID()
 	{

@@ -9,16 +9,16 @@ import java.util.Map;
 
 
 public class kmeans2 {
-	private static String fileName = "E:\\data\\julei2.txt"; // 文件地址
-	private static int numTotal; // 聚类总数
-	private static int K; // 聚类的簇数
-	private static ArrayList<Point1> points = new ArrayList<Point1>();
-	private static ArrayList<Cluster> clusters = new ArrayList<Cluster>();
-	private static double lastE = Double.MAX_VALUE;
-	private static double curE = 0.0;
+	private  String fileName = "E:\\data\\julei2.txt"; // 文件地址
+	private  int numTotal; // 聚类总数
+	private  int K; // 聚类的簇数
+	private  ArrayList<Point1> points = new ArrayList<Point1>();
+	private  ArrayList<Cluster> clusters = new ArrayList<Cluster>();
+	private  double lastE = Double.MAX_VALUE;
+	private  double curE = 0.0;
 
 	// 初始化信息
-	public static void initialize() {
+	public  void initialize() {
 		try {
 			numTotal = points.size();// 聚类点总数
 			K = 2;// 聚类的簇数
@@ -34,7 +34,7 @@ public class kmeans2 {
 	}
 
 	// 判断每个点属于哪个簇
-	public static void calBelongs() {
+	public  void calBelongs() {
 		curE = 0;
 		for (int i = 0; i < points.size(); i++) {
 			double distance = Double.MAX_VALUE;
@@ -53,21 +53,21 @@ public class kmeans2 {
 		}
 	}
 
-	public static void AllCenter() {// 重新计算簇的中心坐标
+	public  void AllCenter() {// 重新计算簇的中心坐标
 		for (int i = 0; i < clusters.size(); i++) {
 			clusters.get(i).NewCenter();
 		}
 	}
 
 	// 打印每个点属于的聚类类别
-	public static void printPoints() {
+	public  void printPoints() {
 		for (int i = 0; i < points.size(); i++) {
 			System.out.println(points.get(i).toString());
 		}
 	}
 
 	// 打印每个簇的信息（包含元素个数、中心点坐标以及元素坐标）
-	public static void printBelongs() {
+	public  void printBelongs() {
 		for (int i = 0; i < clusters.size(); i++) {
 			System.out.println(clusters.get(i).toString());
 			clusters.get(i).printElements();
@@ -75,7 +75,7 @@ public class kmeans2 {
 		}
 	}
 	
-	public static  Map<String,Object> main(List<Point1> list) {
+	public   Map<String,Object> main(List<Point1> list) {
 		points = (ArrayList<Point1>) list;
 		Integer[] data1 = new Integer[8];
 		String[] huafen = new String[8];
@@ -98,11 +98,13 @@ public class kmeans2 {
 			i+=1;
 			printBelongs();
 		}
+		System.out.println("轮廓系数");
+		profileNum();
 		return map;
 	}
 	
 	//数据可视化需要
-	public static List<Map<String,String>> main1(List<Point1> list1){
+	public  List<Map<String,String>> main1(List<Point1> list1){
 		points = (ArrayList<Point1>) list1;
 		List<Map<String,String>> list2 = new ArrayList<Map<String,String>>();
 		Map<String,String> map1 = new HashMap<String,String>();
@@ -117,7 +119,58 @@ public class kmeans2 {
 			map1.put("name", huafen);
 			list2.add(map1);
 		}
+		
 		return list2;
+	}
+	
+	
+	//计算轮廓系数
+	public  void profileNum() {
+		List<Point1> points1 = new ArrayList<Point1>();
+		List<Point1> points2 = new ArrayList<Point1>();
+		Point1 p1;
+		Point1 p2;
+		double ans=0.0,ans1=0.0;
+		for (int i = 0; i < clusters.size(); i++) {
+			p1=null;
+			p2=null;
+			points1 = null;
+			points1 = clusters.get(i).getItems();
+			for (int j = 0; j < points1.size(); j++) {
+				ans = 0.0;
+				p1 = points1.get(j);
+				for(int k = 0; k < points1.size(); k++) {
+					if(j == k) continue;
+					p2 = points1.get(k);
+//					System.out.println(p1.toString());
+//					System.out.println(p2.toString());
+					ans += Math.sqrt(Math.pow(p1.getX()-p2.getX(),2)+Math.pow(p1.getY()-p2.getY(), 2));
+//					System.out.println(ans+"$$$$$$$$$"+Math.pow(p1.getX()-p2.getX(),2)+Math.pow(p1.getY()-p2.getY(), 2));
+				}
+//				System.out.println(points1.size()+"  ### "+ans);
+				if(points1.size()-1 == 0) {
+					ans = 0.0;
+				}
+				else ans /= (points1.size()-1);
+				points2=null;
+				p2=null;
+				ans1=0.0;
+				int num = 0;
+				for(int k = 0; k < clusters.size(); k++) {
+					
+					if(k == i) continue;
+					points2 = clusters.get(k).getItems();
+					num += points2.size();
+					p2=null;
+					for(int k1 = 0; k1 < points2.size(); k1++) {
+						p2 = points2.get(k1);
+						ans1 += Math.sqrt(Math.pow(p1.getX()-p2.getX(),2)+Math.pow(p1.getY()-p2.getY(), 2));
+					}
+				}
+				ans1 /= num;
+				System.out.println("第"+i+"个簇中的第"+j+"个值的轮廓系数为"+(ans1-ans)/(Math.max(ans1, ans)));
+			}
+		}
 	}
 	
 }
